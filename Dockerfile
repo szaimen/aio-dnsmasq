@@ -1,7 +1,9 @@
 FROM alpine:3.24.1
 
 # hadolint ignore=DL3018
-RUN set -ex; apk add --no-cache dnsmasq iproute2 bash
+RUN set -ex; \
+    apk upgrade --no-cache -a; \
+    apk add --no-cache dnsmasq iproute2 bash
 
 COPY --chmod=775 start.sh /start.sh
 
